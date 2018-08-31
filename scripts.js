@@ -1,11 +1,12 @@
 function AddToList(){
     var inputText = document.getElementById("inputText").value;
+    var input = document.getElementById("inputText");
     if(inputText === '') {
         document.getElementById("content-alert").innerHTML="please add your new todo";
     }
     else {
         document.getElementById("content-alert").innerHTML = '';
-        document.getElementById("inputText").value = '';
+       input.value = '';
         var newLi = document.createElement("li");
         document.getElementById("ULContent").appendChild(newLi);
         newLi.appendChild(document.createTextNode(inputText));
@@ -17,6 +18,7 @@ function AddToList(){
         //remove item
         removeFromList();
 }
+    input.focus();
 }
 
 //remove item
