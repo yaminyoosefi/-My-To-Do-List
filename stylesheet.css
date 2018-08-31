@@ -1,17 +1,8 @@
-.clearfix:after {
-    clear: both;
-}
-
-.clearfix:after, .clearfix:before {
-    display: table;
-    content: " ";
-}
-
 a {
     text-decoration: none;
 }
 .content {
-    width:900px;
+    width:calc(100% - 600px);
     min-height: 300px;
     background-color: #e3e6f3;
     margin:100px auto;
@@ -19,12 +10,16 @@ a {
 }
     .content-title {    
         font-size: 30px;
-        color:goldenrod;
+        color:#776161;
         font-weight: 400;
         text-align: center;
     }
     .content-input {
         display: flex;
+    }
+
+    .content-alert {
+        color:red;
     }
     
     .content-field {
@@ -60,50 +55,49 @@ ul {
     background: #eee;
     font-size: 18px;
     transition: 0.2s;
-  }
+    color:#776161;
+    padding:10px 30px;
+  }    
   
-  ul li:nth-child(odd) {
-    background: #f9f9f9;
-  }
-  
-  ul li:hover {
-    background: #ddd;
-  }
+    ul li:nth-child(odd) {
+        background: #f9f9f9;
+    }
+    
+    ul li:hover {
+        background: #ddd;
+    }
 
-  ul li.hidden {
-      display: none;
-  }
+    ul li.hidden {
+        display: none;
+    }
   
-  /*ul li.checked {
-    background: #888;
-    color: #fff;
-    text-decoration: line-through;
-  }
+    ul li.checked {
+        background: #888;
+        color: #fff;
+        text-decoration: line-through;
+    }
   
-  ul li.checked::before {
-    content: '';
-    position: absolute;
-    border-color: #fff;
-    border-style: solid;
-    border-width: 0 2px 2px 0;
-    top: 10px;
-    left: 16px;
-    transform: rotate(45deg);
-    height: 15px;
-    width: 7px;
-  }
+    ul li.checked::before {
+        content: '';
+        position: absolute;
+        border-color: #fff;
+        border-style: solid;
+        border-width: 0 2px 2px 0;
+        top: 10px;
+        left: 16px;
+        transform: rotate(45deg);
+        height: 15px;
+        width: 7px;
+    }
   
-
-  } */
-
-  .delete {
+.delete {
     position: absolute;
     right: 0;
     top: 0;
     padding: 10px 16px;
-  }
-  
-  .delete:hover {
-    background-color: red;
+}
+
+.delete:hover {
+    background-color: #711b1b;
     color: white;
-  }
+}

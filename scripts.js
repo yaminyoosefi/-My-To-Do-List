@@ -1,39 +1,42 @@
-function AddText(){
-    var inputValue = document.getElementById("inputText").value;
-    if(inputValue === ''){
-        alert("please add your text")
+function AddToList(){
+    var inputText = document.getElementById("inputText").value;
+    if(inputText === '') {
+        document.getElementById("content-alert").innerHTML="please add your new todo";
     }
     else {
-        var newLi = document.createElement("li");
-        newLi.appendChild(document.createTextNode(inputValue));
-        document.getElementById("ULContent").appendChild(newLi);
+        document.getElementById("content-alert").innerHTML = '';
         document.getElementById("inputText").value = '';
-        } 
+        var newLi = document.createElement("li");
+        document.getElementById("ULContent").appendChild(newLi);
+        newLi.appendChild(document.createTextNode(inputText));
+        var span = document.createElement("span");
+        span.appendChild(document.createTextNode("delete"));
+        span.className = "delete";
+        newLi.appendChild(span);
 
-//create deleteIcon for all list
-var myList = document.getElementsByTagName('li');
-var i;
-for (i = 0; i < myList.length ; i++){
-    var span = document.createElement('SPAN');
-    var deleteTxt = document.createTextNode("Delete");
-    span.appendChild(deleteTxt);
-    span.className = "delete";
-    myList[i].appendChild(span);
-    myList[i].onclick = function(){
-        this.style.textDecoration= "line-through";
-    }
+        //remove item
+        removeFromList();
+}
 }
 
-
-
-//create onclick function for each delete and hide the current list item
-var deleteItems = document.getElementsByClassName("delete");
-var i;
-for (i = 0 ; i < deleteItems.length ; i++) {
-    deleteItems[i].onclick = function() {
-        var li = this.parentElement;
+//remove item
+function removeFromList() {
+    var deleteItems = document.getElementsByClassName("delete");
+    var i;
+    for(i = 0; i < deleteItems.length ; i++){
+        deleteItems[i].onclick = function(){
+        var li =  this.parentElement;
         li.className = "hidden";
+        }
     }
 }
 
+//doUndo item
+var ul = document.querySelector("ul");
+ul.addEventListener('click' , function(ev) {
+   if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
 }
+},false);
+
+
