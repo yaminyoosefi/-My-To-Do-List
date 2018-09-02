@@ -1,24 +1,31 @@
 function AddToList(){
-    var inputText = document.getElementById("inputText").value;
     var input = document.getElementById("inputText");
-    if(inputText === '') {
-        document.getElementById("content-alert").innerHTML="please add your new todo";
+    var inputValue = input.value;
+    var ULContent =  document.getElementById("ULContent");
+    contentAlert = document.getElementById("content-alert");
+    if(inputValue === '') {
+        contentAlert.innerHTML="please add your new todo";
     }
     else {
-        document.getElementById("content-alert").innerHTML = '';
-       input.value = '';
-        var newLi = document.createElement("li");
-        document.getElementById("ULContent").appendChild(newLi);
-        newLi.appendChild(document.createTextNode(inputText));
-        var span = document.createElement("span");
-        span.appendChild(document.createTextNode("delete"));
-        span.className = "delete";
-        newLi.appendChild(span);
-
-        //remove item
-        removeFromList();
-}
+        render(input,inputValue,ULContent);
+    }
     input.focus();
+}
+
+//add item
+function render (input, inputValue, ULContent) {
+    contentAlert.innerHTML = '';
+    input.value = '';
+    var newLi = document.createElement("li");
+    ULContent.appendChild(newLi);
+    newLi.appendChild(document.createTextNode(inputValue));
+    var span = document.createElement("span");
+    span.appendChild(document.createTextNode("delete"));
+    span.className = "delete";
+    newLi.appendChild(span);
+
+    //remove item
+    removeFromList();
 }
 
 //remove item
@@ -39,6 +46,6 @@ ul.addEventListener('click' , function(ev) {
    if (ev.target.tagName === 'LI') {
     ev.target.classList.toggle('checked');
 }
-},false);
+});
 
 
